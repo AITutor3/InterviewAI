@@ -2,6 +2,7 @@
 Interview AI Assistant - Main Application
 """
 import streamlit as st
+import streamlit.components.v1 as components
 
 # Page configuration
 st.set_page_config(
@@ -9,6 +10,21 @@ st.set_page_config(
     page_icon="💼",
     layout="wide",
     initial_sidebar_state="collapsed",
+)
+
+# Google Analytics (gtag.js)
+components.html(
+    """
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL4JG7V0MS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'G-BL4JG7V0MS');
+    </script>
+    """,
+    height=0,
 )
 from pages.generate_question import show as show_generate_questions
 from pages.resume_analysis import show as show_resume_analysis
